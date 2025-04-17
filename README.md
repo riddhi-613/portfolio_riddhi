@@ -20,13 +20,13 @@ LINK : https://startling-sable-3d1089.netlify.app/
 ✅ Dynamic Skills Grid – Organized display of technical skills
 
 ## 🛠️ Technologies Used
-# Frontend:
+## Frontend:
 HTML5
 CSS3
 JavaScript
 
-# Tools & Libraries:
+## Tools & Libraries:
 Font Awesome (Icons)
 
-# Hosting: 
+## Hosting: 
 Netlify

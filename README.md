@@ -8,10 +8,15 @@ LINK : https://startling-sable-3d1089.netlify.app/
 
 ## ✨ Features
 ✅ Responsive Design – Works on all devices (desktop, tablet, mobile)
+
 ✅ Dark/Purple Theme – Professional color scheme with smooth animations
+
 ✅ Project Showcase – Split-screen layout for projects (image + description)
+
 ✅ Certification Carousel – Interactive slider for certifications
+
 ✅ Smooth Scrolling – Easy navigation between sections
+
 ✅ Dynamic Skills Grid – Organized display of technical skills
 
 ## 🛠️ Technologies Used

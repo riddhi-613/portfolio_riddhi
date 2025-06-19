@@ -1,21 +1,27 @@
-// Certifications Carousel
+// ---------------- Certifications Carousel ----------------
 let currentSlide = 0;
 const slides = document.querySelectorAll('.cert-slide');
 
-function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
 }
 
 function moveSlide(n) {
-    showSlide(currentSlide + n);
+    currentSlide += n;
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+    showSlide(currentSlide);
 }
 
 // Initialize first slide
-showSlide(0);
+showSlide(currentSlide);
 
-// Smooth scrolling for navigation links
+// ---------------- Smooth scrolling for navigation links ----------------
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -29,7 +35,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-// Add animation on scroll
+// ---------------- Animation on scroll for sections ----------------
 const observerOptions = {
     threshold: 0.1
 };
@@ -46,48 +52,7 @@ document.querySelectorAll('.section, .project, .education-item, .skill-category'
     observer.observe(section);
 });
 
-// script.js
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Certifications carousel functionality
-let currentCertSlide = 0;
-const certSlides = document.querySelectorAll('.cert-slide');
-
-function showSlide(index) {
-    certSlides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
-}
-
-function moveSlide(n) {
-    currentCertSlide += n;
-    
-    if (currentCertSlide >= certSlides.length) {
-        currentCertSlide = 0;
-    } else if (currentCertSlide < 0) {
-        currentCertSlide = certSlides.length - 1;
-    }
-    
-    showSlide(currentCertSlide);
-}
-
-// Initialize the carousel
-showSlide(currentCertSlide);
-
-// Work Experience animations
+// ---------------- Work Experience animations ----------------
 const experienceItems = document.querySelectorAll('.experience-item');
 
 function checkExperienceVisibility() {
@@ -114,7 +79,7 @@ experienceItems.forEach(item => {
 window.addEventListener('scroll', checkExperienceVisibility);
 window.addEventListener('load', checkExperienceVisibility);
 
-// Mobile menu toggle (if you want to add responsive menu later)
+// ---------------- Mobile menu toggle ----------------
 const menuToggle = document.createElement('div');
 menuToggle.className = 'menu-toggle';
 menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
